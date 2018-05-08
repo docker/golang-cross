@@ -1,4 +1,4 @@
-FROM    golang:1.9.5
+FROM    golang:1.10.2
 
 # allow replacing httpredir or deb mirror
 ARG     APT_MIRROR=deb.debian.org
