@@ -4,7 +4,7 @@ FROM    golang:1.11.0
 ARG     APT_MIRROR=deb.debian.org
 RUN     sed -ri "s/(httpredir|deb).debian.org/$APT_MIRROR/g" /etc/apt/sources.list
 
-RUN     apt-get update -qq && apt-get install -y -q \
+RUN     apt-get update -qq && apt-get install -y -q --no-install-recommends \
             libltdl-dev \
             gcc-mingw-w64 \
             parallel \
