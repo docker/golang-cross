@@ -13,3 +13,4 @@ RUN     apt-get update -qq && apt-get install -y -q --no-install-recommends \
 COPY    osx-cross.sh /tmp/
 RUN     /tmp/osx-cross.sh
 ENV     PATH /osxcross/target/bin:$PATH
+ENV     GOPROXY direct
