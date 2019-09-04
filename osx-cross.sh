@@ -35,8 +35,8 @@ echo "$SDK_SUM  ${OSXCROSS_PATH}/tarballs/${OSX_SDK}.tar.xz" \
 	| sha256sum -c -
 
 echo "Building osxcross"
-# Go 1.11 requires OSX >= 10.10
-UNATTENDED=yes OSX_VERSION_MIN=10.10 ${OSXCROSS_PATH}/build.sh > /dev/null
+# Go 1.13 requires OSX >= 10.11
+UNATTENDED=yes OSX_VERSION_MIN=10.11 ${OSXCROSS_PATH}/build.sh > /dev/null
 
 echo "Installing libtool from brew"
 curl -sSL https://homebrew.bintray.com/bottles/libtool-${LIBTOOL_VERSION}.${OSX_CODENAME}.bottle.tar.gz \
