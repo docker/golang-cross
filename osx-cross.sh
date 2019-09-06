@@ -7,20 +7,56 @@
 
 set -eu -o pipefail
 
-PKG_DEPS="patch xz-utils clang llvm file"
-
-time apt-get install -y -q --no-install-recommends $PKG_DEPS
+# Based on the README at https://github.com/tpoechtrager/osxcross:
+# https://github.com/tpoechtrager/osxcross/blob/d39ba022313f2d5a1f5d02caaa1efb23d07a559b/README.md
+#
+# ensure you have the following installed on your system:
+#
+# Clang 3.4+, cmake, git, patch, Python, libssl-devel (openssl)
+# lzma-devel, libxml2-devel and the bash shell.
+#
+# You can run 'sudo tools/get_dependencies.sh' to get these (and the optional packages) automatically. (outdated)
+#
+# Optional:
+# - llvm-devel: For Link Time Optimization support
+# - llvm-devel: For ld64 -bitcode_bundle support
+# - uuid-devel: For ld64 -random_uuid support
+#
+# TODO for testing, also added dependencies that were installed by the get_dependencies.sh script (but it's mentioned to be "outdated"
+# https://github.com/tpoechtrager/osxcross/blob/d39ba022313f2d5a1f5d02caaa1efb23d07a559b/tools/get_dependencies.sh#L43-L47
+time apt-get install -y -q --no-install-recommends \
+   bzip2 \
+   clang \
+   cmake \
+   cpio \
+   file \
+   gzip \
+   libbz2-dev \
+   liblzma-dev \
+   libssl-dev \
+   libxml2-dev \
+   llvm \
+   make \
+   patch \
+   sed \
+   tar \
+   xz-utils \
+   zlib1g-dev \
+   \
+   llvm-dev \
+   uuid-dev \
+&& rm -rf /var/lib/apt/lists/*
 
 # NOTE: when changing version here, make sure to
 # also change OSX_CODENAME below to match
 OSX_SDK=MacOSX10.10.sdk
 SDK_SUM=631b4144c6bf75bf7a4d480d685a9b5bda10ee8d03dbf0db829391e2ef858789
 
-OSX_CROSS_COMMIT=a9317c18a3a457ca0a657f08cc4d0d43c6cf8953
+OSX_CROSS_COMMIT=d39ba022313f2d5a1f5d02caaa1efb23d07a559b
 OSXCROSS_PATH="/osxcross"
 
 LIBTOOL_VERSION=2.4.6
-OSX_CODENAME=yosemite
+OSX_CODENAME=el_capitan
 
 echo "Cloning osxcross"
 time git clone https://github.com/tpoechtrager/osxcross.git $OSXCROSS_PATH

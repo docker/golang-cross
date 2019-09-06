@@ -1,4 +1,4 @@
-FROM    golang:1.13.0
+FROM    golang:1.13.0-buster
 
 # allow replacing httpredir or deb mirror
 ARG     APT_MIRROR=deb.debian.org
