@@ -1,4 +1,4 @@
-ARG GO_VERSION=1.13.12
+ARG GO_VERSION=1.13.13
 
 # OS-X SDK parameters
 # NOTE: when changing version here, make sure to also change OSX_CODENAME below to match
