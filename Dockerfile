@@ -1,14 +1,14 @@
-ARG GO_VERSION=1.13.15
+ARG GO_VERSION=1.14.12
 
 # OS-X SDK parameters
 # NOTE: when changing version here, make sure to also change OSX_CODENAME below to match
-# TODO Go 1.13 supports macOS 10.11 (el capitan) and higher. Update this to 10.11 SDK
+# TODO Go 1.13 and 1.14 supports macOS 10.11 (el capitan) and higher. Update this to 10.11 SDK
 # once an updated version of the SDK is available on s3.dockerproject.org
 ARG OSX_SDK=MacOSX10.10.sdk
 ARG OSX_SDK_SUM=631b4144c6bf75bf7a4d480d685a9b5bda10ee8d03dbf0db829391e2ef858789
 
 # OSX-cross parameters. Go 1.11 requires OSX >= 10.10
-# TODO Go 1.13 supports macOS 10.11 (el capitan) and higher. Update this to 10.11
+# TODO Go 1.13 and 1.14 supports macOS 10.11 (el capitan) and higher. Update this to 10.11
 # once an updated version of the SDK is available on s3.dockerproject.org
 ARG OSX_VERSION_MIN=10.10
 ARG OSX_CROSS_COMMIT=a9317c18a3a457ca0a657f08cc4d0d43c6cf8953
@@ -16,7 +16,7 @@ ARG OSX_CROSS_COMMIT=a9317c18a3a457ca0a657f08cc4d0d43c6cf8953
 # Libtool parameters
 ARG LIBTOOL_VERSION=2.4.6
 
-# TODO Go 1.13 supports macOS 10.11 (el capitan) and higher. Update this to 'el_capitan'
+# TODO Go 1.13 and 1.14 supports macOS 10.11 (el capitan) and higher. Update this to 'el_capitan'
 # once an updated version of the SDK is available on s3.dockerproject.org
 ARG OSX_CODENAME=yosemite
 
